@@ -7,7 +7,7 @@ phases:
 
   pre_build:
     commands:
-      - cd HelloWorldDemo
+      - cd java-lambda-project\HelloWorldDemo
       - mvn clean
 
   build:
