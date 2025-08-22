@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+
+  pre_build:
+    commands:
+      - cd HelloWorldDemo
+      - mvn clean
+
+  build:
+    commands:
+      - mvn -Dmaven.test.skip package
+
+  post_build:
+    commands:
+      - aws lambda update-function-code --function-name JavaLambdaB8 --zip-file fileb://target/demo-1.0.0.jar --region ap-south-1
